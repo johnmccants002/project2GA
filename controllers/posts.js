@@ -24,7 +24,7 @@ function show(req, res) {
   function newPost(req, res) {
     console.log("in the new post function")
 
-    res.render('posts/new', {})
+    res.render('posts/new', {title: 'New Post'})
 
   }
   

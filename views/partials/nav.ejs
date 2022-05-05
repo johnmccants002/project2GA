@@ -1,11 +1,8 @@
-<% if (!user) { %>
-    <link rel="stylesheet" href="/stylesheets/siwg.css">
-  <% } %>
 </head>
 <body>
     <nav>
       <img src="/images/camera.svg">
-      <a href="/" <%- title === 'All Posts' ? 'class="active"' : '' %>>All Posts</a>
+      <a href="/posts" <%- title === 'All Posts' ? 'class="active"' : '' %>>All Posts</a>
       <% if (user) { %>
         <a href="/posts/new" <%- title === 'New Post' ? 'class="active"' : '' %>>Add Post</a>
         <a href="/logout">LOG OUT</a>
