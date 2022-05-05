@@ -186,3 +186,7 @@ hr {
   border-radius: 50%;
   height: 40px;
 }
+
+.feed {
+  height: 30px;
+}

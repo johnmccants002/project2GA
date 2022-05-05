@@ -5,6 +5,17 @@
  
 Yoooooooo
 </div>
+<% posts.forEach(function(m) { %>
+<div>
+  <img class="feed"
+  src="<%= m.userAvatar %>"
+  alt="<%= m.userName %> avatar"
+/>
+
+<h4><%= m.userName %></h4>
+  <%= m.postText %></div>
+  <% }); %>
+
 </main>
 
 <%- include('../partials/footer') %>

@@ -10,8 +10,10 @@ module.exports = {
 };
 
 function index(req, res) {
-    // Post.find({}, function(err, posts) {
-        res.render('posts/index', { title: "Posts"});
+    Post.find({}, function(err, posts) {
+      res.render('posts/index', { title: "Posts", posts});
+    });
+        
 }
 
 function show(req, res) {
@@ -23,13 +25,16 @@ function show(req, res) {
   
   function newPost(req, res) {
     console.log("in the new post function")
-
-    res.render('posts/new', {title: 'New Post'})
+    res.render('posts/new', {title: 'New Post', user: req.user})
 
   }
   
   function create(req, res) {
     const post = new Post(req.body);
+    console.log(req.user);
+    post.user = req.user.profile._id
+    post.userName = req.user.profile.name
+    post.userAvatar = req.user.profile.avatar
     post.save(function(err) {
       if (err) return res.redirect('/posts/new');
       res.redirect(`/posts/${post._id}`);

@@ -1,23 +1,14 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<main>
-<img src="<%= user.profile.avatar %>">
-<br>
-<h2> <%= user.profile.name %></h2>
-
 <label> About </label>
 
 <form>
     <div class="form-group">
         <label for="exampleFormControlTextarea1"></label>
-        <textarea class="form-control-plaintext" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
       </div>
 
 </form>
-
-<button>Edit About Section</button>
-
-</main>>
 
 <%- include('../partials/footer') %>

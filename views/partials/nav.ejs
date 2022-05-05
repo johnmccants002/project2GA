@@ -5,19 +5,9 @@
       <a href="/posts" <%- title === 'All Posts' ? 'class="active"' : '' %>>All Posts</a>
       <% if (user) { %>
         <a href="/posts/new" <%- title === 'New Post' ? 'class="active"' : '' %>>Add Post</a>
+        <a href="/userprofile" <%- title === 'User Profile' ? 'class="active"' : '' %>>Profile</a>
         <a href="/logout">LOG OUT</a>
       <% } else { %>
         <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
       <% } %>
     </nav>
-    <!-- <% if (user) { %>
-      <a href="/auth/logout">
-        <button type="submit">Logout</button>
-      </a>
-    <% } else { %>
-      <a href="/auth/google" class="siwg-link">
-        <button type="submit" class="siwg">
-          <img id="siwg-image" alt="Sign in with Google" />
-        </button>
-      </a>
-    <% } %> -->
