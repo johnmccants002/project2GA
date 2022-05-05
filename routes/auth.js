@@ -1,7 +1,7 @@
-import { Router } from 'express'
-import passport from 'passport'
+const express = require('express');
+const router = express.Router();
+const passport = require('passport');
 
-const router = Router()
 
 router.get(
   '/google',
@@ -21,6 +21,4 @@ router.get('/logout', function (req, res) {
   res.redirect('/')
 })
 
-export {
-  router
-}
+module.exports = router;

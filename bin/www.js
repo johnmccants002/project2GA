@@ -1,7 +1,7 @@
 // Module dependencies
-import { app } from '../server.js'
-import debug from 'debug'
-import http from 'http'
+var app = require('../server');
+var debug = require('debug')('mongoose-movies:server');
+var http = require('http');
 
 // Get port from environment and store in Express
 const port = normalizePort(process.env.PORT || '3000')

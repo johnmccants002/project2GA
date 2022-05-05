@@ -5,13 +5,13 @@ module.exports = {
     index,
     show,
     new: newPost,
-    create
+    create,
+    delete: deletePost
 };
 
 function index(req, res) {
-    Post.find({}, function(err, posts) {
-        res.render('posts/index', { title: "Posts", posts});
-    });
+    // Post.find({}, function(err, posts) {
+        res.render('posts/index', { title: "Posts"});
 }
 
 function show(req, res) {
@@ -22,7 +22,10 @@ function show(req, res) {
   }
   
   function newPost(req, res) {
-    res.render('posts/new', { title: 'Add Post' });
+    console.log("in the new post function")
+
+    res.render('posts/new', {})
+
   }
   
   function create(req, res) {
@@ -33,3 +36,6 @@ function show(req, res) {
     });
   }
   
+  function deletePost(req, res) {
+    Post.findByIdAndRemove(req.params._id)
+  }

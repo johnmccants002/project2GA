@@ -1,14 +1,17 @@
-import { Router } from 'express'
-import passport from 'passport'
+const express = require('express');
+const router = express.Router();
+const passport = require('passport');
 
-
-
-
-const router = Router()
 
 router.get('/', function (req, res) {
   res.render('index', { title: 'Home Page', user: req.user ? req.user : null })
 })
+
+
+
+// router.get('/', function(req, res, next) {
+//   res.redirect('/posts');
+// });
 
 router.get('/auth/google', passport.authenticate(
   'google',
@@ -28,7 +31,6 @@ router.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
-export {
-  router
-}
+module.exports = router;
+
 

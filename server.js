@@ -1,63 +1,62 @@
-import 'dotenv/config.js'
-import express from 'express'
-import path from 'path'
-import { fileURLToPath } from 'url'
-import createError from 'http-errors'
-import session from 'express-session'
-import logger from 'morgan'
-import methodOverride from 'method-override'
-import passport from 'passport'
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+var session = require('express-session');
+var passport = require('passport');
+var methodOverride = require('method-override');
+require('dotenv').config();
+// config/database depends upon process.env.DATABASE_URL
+require('./config/database');
+require('./config/passport');
 
-// connect to MongoDB with mongoose
-import('./config/database.js')
 
-// load passport
-import('./config/passport.js')
 
 // require routes
-import { router as indexRouter } from './routes/index.js'
-import { router as authRouter } from './routes/auth.js'
+var indexRouter = require('./routes/index');
+var authRouter = require('./routes/auth');
+var postsRouter = require('./routes/posts');
+
+
 
 // create the express app
-const app = express()
+var app = express()
 
 // view engine setup
-app.set(
-  'views',
-  path.join(path.dirname(fileURLToPath(import.meta.url)), 'views')
-)
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs')
 
 // middleware
-app.use(methodOverride('_method'))
 app.use(logger('dev'))
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-app.use(
-  express.static(
-    path.join(path.dirname(fileURLToPath(import.meta.url)), 'public')
-  )
-)
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(cookieParser());
+app.use(methodOverride('_method'))
 
 // session middleware
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false,
-    cookie: {
-      sameSite: 'lax',
-    },
+    saveUninitialized: true,
   })
 )
 
 // passport middleware
-app.use(passport.initialize())
-app.use(passport.session())
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(function (req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
 
 // router middleware
 app.use('/', indexRouter)
 app.use('/auth', authRouter)
+app.use('/posts', postsRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -76,4 +75,4 @@ app.use(function (err, req, res, next) {
   })
 })
 
-export { app }
+module.exports = app;
