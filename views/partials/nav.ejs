@@ -3,8 +3,17 @@
   <% } %>
 </head>
 <body>
-  <nav>
-    <% if (user) { %>
+    <nav>
+      <img src="/images/camera.svg">
+      <a href="/posts" <%- title === 'All Posts' ? 'class="active"' : '' %>>All Posts</a>
+      <% if (user) { %>
+        <a href="/posts/new" <%- title === 'Add Post' ? 'class="active"' : '' %>>Add Post</a>
+        <a href="/logout">LOG OUT</a>
+      <% } else { %>
+        <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+      <% } %>
+    </nav>
+    <!-- <% if (user) { %>
       <a href="/auth/logout">
         <button type="submit">Logout</button>
       </a>
@@ -14,5 +23,4 @@
           <img id="siwg-image" alt="Sign in with Google" />
         </button>
       </a>
-    <% } %>
-  </nav>
+    <% } %> -->
