@@ -2,25 +2,20 @@
 <%- include('../partials/nav') %>
 
 <main>
-<img src="<%= user.profile.avatar %>">
+<div class="card">
+    <img src="<%= user.profile.avatar %>">
+    <div class="details">
+        <h2> <%= user.profile.name %> </h2>
+        <p>Full Stack Developer</p>
+    </div>
+    <p id="info"><%= profile.about %></p>
+
+</div>
 <br>
-<h2> <%= user.profile.name %></h2>
-
-<label> About </label>
-
-<form>
-    <div class="form-group">
-        <label for="staticAbout"></label>
-        <textarea readonly class="form-control-plaintext" id="exampleFormControlTextarea1" rows="3">
-            <%= profile.about %>
-        </textarea>
-        <input type="text" readonly class="form-control-plaintext" >
-      </div>
-
-</form>
-
-<a id="editprofilelink" href="/user/editprofile">Edit About Section</a>
+<br>
+<a id="editprofilelink" href="/user/editprofile">
+    <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Edit Profile</button>
+  </a>
 
 </main>
-
 <%- include('../partials/footer') %>
