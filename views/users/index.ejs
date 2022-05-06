@@ -10,14 +10,17 @@
 
 <form>
     <div class="form-group">
-        <label for="exampleFormControlTextarea1"></label>
-        <textarea class="form-control-plaintext" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <label for="staticAbout"></label>
+        <textarea readonly class="form-control-plaintext" id="exampleFormControlTextarea1" rows="3">
+            <%= profile.about %>
+        </textarea>
+        <input type="text" readonly class="form-control-plaintext" >
       </div>
 
 </form>
 
-<button>Edit About Section</button>
+<a href="/user/editprofile">Edit About Section</a>
 
-</main>>
+</main>
 
 <%- include('../partials/footer') %>

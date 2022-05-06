@@ -1,14 +1,17 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
+<main>
 <label> About </label>
 
-<form>
-    <div class="form-group">
-        <label for="exampleFormControlTextarea1"></label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-      </div>
+<form action="/user/editprofile" method="POST">
+
+        <label>About:</label>
+        <input type="textarea" name="about">
+        <input type="submit" value="Save About">
+
 
 </form>
+</main>
 
 <%- include('../partials/footer') %>

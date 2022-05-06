@@ -5,7 +5,7 @@
       <a href="/posts" <%- title === 'All Posts' ? 'class="active"' : '' %>>All Posts</a>
       <% if (user) { %>
         <a href="/posts/new" <%- title === 'New Post' ? 'class="active"' : '' %>>Add Post</a>
-        <a href="/userprofile" <%- title === 'User Profile' ? 'class="active"' : '' %>>Profile</a>
+        <a href="/user" <%- title === 'User Profile' ? 'class="active"' : '' %>>Profile</a>
         <a href="/logout">LOG OUT</a>
       <% } else { %>
         <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
