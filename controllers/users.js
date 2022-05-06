@@ -22,6 +22,7 @@ function show(req, res) {
 }
 
 function edit(req, res) {
+    console.log("In the edit function users");
     console.log(req.user)
     res.render('users/edit', { title: "Edit", user: req.user });
 }

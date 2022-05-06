@@ -11,7 +11,9 @@ router.get('/new', postsCtrl.new);
 router.get('/:id', postsCtrl.show);
 router.get('/:id/edit', postsCtrl.edit)
 router.post('/', postsCtrl.create);
+router.put('/:id', postsCtrl.savePostInfo);
 router.delete('/:id', postsCtrl.delete);
+
 
 module.exports = router;
   

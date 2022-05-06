@@ -7,7 +7,8 @@ module.exports = {
     new: newPost,
     create,
     delete: deletePost,
-    edit
+    edit,
+    savePostInfo
 };
 
 function index(req, res) {
@@ -50,7 +51,25 @@ function show(req, res) {
   }
 
   function edit(req, res) {
+    console.log("in edit function posts");
+    console.log(req.params.id);
     Post.findById(req.params.id, function(err, post) {
+      console.log("this is the post:", post);
+      if (err) {
+        console.log(err)
+      }
     res.render('posts/edit', { title: "Edit", post });
+    });
+  }
+
+  function savePostInfo(req, res) {
+    console.log("in save post info");
+    console.log(req.params.id);
+    Post.findById(req.params.id, function(err, post) {
+      let postText = req.body.postText;
+      post.postText = postText;
+      post.save(function(err) {
+        res.redirect('/posts');
+    });
     });
   }

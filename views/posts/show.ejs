@@ -6,12 +6,10 @@
 <%= post.postText %>
 
 <% if (user) { %>
-
-    <h1>THEY ARE EQUAL</h1>
     <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
         <button type="submit">X</button>
       </form>
-     <a href="/posts/<%= post._id %>/edit">Edit Post</a>>
+     <a href="/posts/<%= post._id %>/edit">Edit Post</a>
     <% } %>
     </div>
     </main>
