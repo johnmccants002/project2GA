@@ -1,17 +1,14 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
-
 <main>
-<div>
-<%= post.postText %>
-
-<% if (user) { %>
-    <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
-        <button type="submit">X</button>
-      </form>
-     <a href="/posts/<%= post._id %>/edit">Edit Post</a>
-    <% } %>
+    <div>
+        <%= post.postText %>
+        <% if (user) { %>
+            <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+                <button type="submit">X</button>
+            </form>
+            <a href="/posts/<%= post._id %>/edit">Edit Post</a>
+        <% } %>
     </div>
-    </main>
-
+</main>
 <%- include('../partials/footer') %>
