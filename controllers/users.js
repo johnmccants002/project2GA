@@ -11,7 +11,6 @@ module.exports = {
 
 function index(req, res) {
     Profile.findById(req.user.profile._id, function(err, profile) {
-        console.log(profile);
         res.render('users/index', { title: "User", user: req.user, profile: profile});
 
     });    
@@ -30,12 +29,8 @@ function edit(req, res) {
 function saveProfileInfo(req, res) {
     console.log(req.user.profile._id);
         Profile.findById(req.user.profile._id, function(err, profile){
-        console.log(profile);
-       console.log(req.body.about);
        let about = req.body.about;
        profile.about = about;
-     
-
         profile.save(function(err) {
             res.redirect('/user');
         });

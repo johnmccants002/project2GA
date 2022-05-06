@@ -7,13 +7,14 @@ In this app a user will be able to create a profile through signing in with Goog
 
 ## Technologies Used
 
--Javascript
--CSS
--HTML
--Express
--MongoDB
--Google OAuth
--[Whimsical](https://whimsical.com/redditstyleproject2-LXnmncjYqE9vLD1cm3fBBV)
+- Javascript
+- CSS
+- HTML
+- Express
+- MongoDB
+- Google OAuth
+- [Bootstrap](https://getbootstrap.com/)
+- [Whimsical](https://whimsical.com/redditstyleproject2-LXnmncjYqE9vLD1cm3fBBV)
 
 ## Getting started
 

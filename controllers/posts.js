@@ -26,14 +26,12 @@ function show(req, res) {
   }
   
   function newPost(req, res) {
-    console.log("in the new post function")
     res.render('posts/new', {title: 'New Post', user: req.user})
 
   }
   
   function create(req, res) {
     const post = new Post(req.body);
-    console.log(req.user);
     post.user = req.user.profile._id
     post.userName = req.user.profile.name
     post.userAvatar = req.user.profile.avatar
@@ -51,10 +49,7 @@ function show(req, res) {
   }
 
   function edit(req, res) {
-    console.log("in edit function posts");
-    console.log(req.params.id);
     Post.findById(req.params.id, function(err, post) {
-      console.log("this is the post:", post);
       if (err) {
         console.log(err)
       }
@@ -63,8 +58,6 @@ function show(req, res) {
   }
 
   function savePostInfo(req, res) {
-    console.log("in save post info");
-    console.log(req.params.id);
     Post.findById(req.params.id, function(err, post) {
       let postText = req.body.postText;
       post.postText = postText;
