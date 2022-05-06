@@ -15,6 +15,7 @@ In this app a user will be able to create a profile through signing in with Goog
 - Google OAuth
 - [Bootstrap](https://getbootstrap.com/)
 - [Whimsical](https://whimsical.com/redditstyleproject2-LXnmncjYqE9vLD1cm3fBBV)
+- [Trello](https://trello.com/b/UoFJWukE/project-2-ga)
 
 ## Getting started
 
