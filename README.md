@@ -18,7 +18,14 @@ In this app a user will be able to create a profile through signing in with Goog
 
 ## Getting started
 
-# [CLICK TO SEE](https://project2generalassembly.herokuapp.com/)
+# [DEPLOY LINK](https://project2generalassembly.herokuapp.com/)
+
+
+## Future Iterations
+
+- Add upvote feature
+- Add comments
+- Add view user profile
 
 
 
