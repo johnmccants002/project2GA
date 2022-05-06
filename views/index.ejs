@@ -2,7 +2,7 @@
 <%- include('./partials/nav') %>
 
 <main>
-  <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
+  <h1> <%= user ? user.profile.name : "welcome to John's Post App" %></h1>
   <% if (user?.profile.avatar) { %>
     <div>
       <img
@@ -12,7 +12,6 @@
     </div>
   <% } %>
 <div>
-This is an example post.
 </div>
 </main>
 
