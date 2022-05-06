@@ -39,7 +39,7 @@ function show(req, res) {
     post.userAvatar = req.user.profile.avatar
     post.save(function(err) {
       if (err) return res.redirect('/posts/new');
-      res.redirect(`/posts/${post._id}`);
+      res.redirect(`/posts`);
     });
   }
   

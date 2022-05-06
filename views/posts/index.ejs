@@ -2,22 +2,21 @@
 <%- include('../partials/nav') %>
 
 <main>
- 
-Yoooooooo
-</div>
-<% posts.forEach(function(m) { %>
-<div>
-  <img class="feed"
-  src="<%= m.userAvatar %>"
-  alt="<%= m.userName %> avatar"
-/>
-<h4> <%= m.userName %> </h4>
-  <%= m.postText %>
-  <a href="/posts/<%= m._id %>">View Post</a>
-    
-</div>
+  <% posts.reverse().forEach(function(m) { %>
+    <div class="px-4 pt-5 my-5 text-center border-bottom">
+      <img class="d-block mx-auto mb-4" src="<%= m.userAvatar %>" alt="" width="72" height="57">
+      <h1 class="display-5 fw-bold"><%= m.userName %></h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4"><%= m.postText %></p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <a href="/posts/<%= m._id %>">
+            <button type="button" class="btn btn-primary btn-lg px-4 gap-3">View Post</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="b-example-divider"></div>
   <% }); %>
-
 </main>
 
 <%- include('../partials/footer') %>
