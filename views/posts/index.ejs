@@ -11,8 +11,11 @@ Yoooooooo
   src="<%= m.userAvatar %>"
   alt="<%= m.userName %> avatar"
 />
-<h4 href="/user/<%= m.user %>"> <%= m.userName %> </h4>
-  <%= m.postText %></div>
+<h4> <%= m.userName %> </h4>
+  <%= m.postText %>
+  <a href="/posts/<%= m._id %>">View Post</a>
+    
+</div>
   <% }); %>
 
 </main>

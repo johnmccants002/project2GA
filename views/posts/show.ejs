@@ -1,1 +1,19 @@
-<h1>Yoooo show the post </h1>
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+<div>
+<%= post.postText %>
+
+<% if (user) { %>
+
+    <h1>THEY ARE EQUAL</h1>
+    <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+        <button type="submit">X</button>
+      </form>
+
+    <% } %>
+    </div>
+    </main>
+
+<%- include('../partials/footer') %>

@@ -19,7 +19,7 @@ function index(req, res) {
 function show(req, res) {
     Post.findById(req.params.id)
       .exec(function(err, post) {
-            res.render('posts/show', { title: 'Post', post});
+            res.render('posts/show', { title: 'Post', post, user: req.user});
           });
   }
   
@@ -41,6 +41,15 @@ function show(req, res) {
     });
   }
   
-  function deletePost(req, res) {
-    Post.findByIdAndRemove(req.params._id)
+  function deletePost(req, res, next) {
+    console.log("In delete post")
+    Post.findByIdAndRemove(req.params.id, function() {
+      res.redirect('/posts')
+    });
+  }
+
+  function edit(req, res) {
+    Post.findById(req.params.id, function(err, post) {
+    res.render('posts/edit', { title: "Edit", post });
+    });
   }
